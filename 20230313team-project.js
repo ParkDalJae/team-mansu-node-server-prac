@@ -1,13 +1,16 @@
 const http = require('http');
+
 const formTag = `
 <form method="GET" action="/login">
 <input type="text" name="id">
 <input type="submit">
 </form>
 `;
+
 function greet(fromSubmitString) {
 return `<h1>${fromSubmitString}</h1>`;
 }
+
 function firstPage(data) {
 return `
 <!DOCTYPE html>
@@ -41,11 +44,10 @@ console.log(name);
 response.writeHead(200, {'Content-Type': 'text/html'});
 let page = firstPage(greet(name))
 response.write(page);
-
-
 response.end();
 }
 });
+
 // 서버 포트 설정
 server.listen(2080, function(error) {
 if(error) { console.error('서버 안돌아감') } else { console.log('서버 돌아감'); }
