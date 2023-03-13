@@ -3,8 +3,8 @@ const http = require('http');
 
 const formTag = `
 <form method="GET" action="/login">
-<input type="text" name="id"> <br>
-<input type="password" name="password" minlength="8"> <br>
+아이디 : <input type="text" name="id"> <br>
+비번 : <input type="password" name="password" minlength="8"> <br>
 <input type="submit">
 </form>
 `;
@@ -51,8 +51,6 @@ if(request.method === 'GET' && request.url.startsWith('/login')) {
 // const name = request.url.split('&').join('=').split('=');
 const name = decodeURI(request.url).split('&').join('=').split('=')[1];
 console.log(name);
-console.log(name[1]);
-console.log(name[3]);
 response.writeHead(200, {'Content-Type': 'text/html'});
 let page = firstPage(greet(name))
 response.write(page);
